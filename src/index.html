@@ -2,6 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <% if (htmlWebpackPlugin.options.trackJSToken) { %>
+    <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+    <script>
+      window.TrackJS && TrackJS.install({
+        token: '<%=htmlWebpackPlugin.options.trackJSToken%>'
+        // for more configuration options, see https://docs.trackjs.com
+      });
+    </script>
+    <% } %>
   </head>
   <body>
     <h1>Users</h1>
@@ -17,6 +26,5 @@
 
       </tbody>
     </table>
-    <script src="bundle.js"></script>
   </body>
 </html>
